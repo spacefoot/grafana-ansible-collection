@@ -18,3 +18,17 @@
   delay: 2
   notify:
     - restart_grafana
+
+- name: Install external plugins
+  become: true
+  ansible.builtin.command:
+    cmd: "grafana-cli --pluginsDir {{ grafana_data_dir }}/plugins --pluginUrl {{ item.url }} plugins install {{ item.name }}"
+    creates: "{{ grafana_data_dir }}/plugins/{{ item.name }}"
+  loop: "{{ grafana_external_plugins }}"
+  when: item.name not in __installed_plugins.files
+  register: __plugin_install
+  until: "__plugin_install is succeeded"
+  retries: 5
+  delay: 2
+  notify:
+    - restart grafana

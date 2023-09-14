@@ -217,6 +217,10 @@ grafana_date_formats: {}
 grafana_plugins: []
 #  - raintank-worldping-app
 
+# Plugins from external sources
+grafana_external_plugins: []
+# - { name: foo, url: https://exemple.com/foo.zip }
+
 # Dashboards from https://grafana.com/dashboards
 grafana_dashboards: []
 #  - dashboard_id: '4271'
