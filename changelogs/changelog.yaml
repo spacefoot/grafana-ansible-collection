@@ -169,3 +169,42 @@ releases:
       - Fix grafana dashboard import in Grafana Role
       release_summary: Fix grafana dashboard import in Grafana Role
     release_date: '2023-09-12'
+  2.1.9:
+    changes:
+      minor_changes:
+      - Add check for Curl and failure step if Agent Version is not retrieved
+      - Bump cryptography from 39.0.2 to 41.0.3
+      - Bump semver from 5.7.1 to 5.7.2
+      - Bump word-wrap from 1.2.3 to 1.2.5
+      - Create local dashboard directory in check mode
+      - Update CI Testing
+      - Update Cloud Stack Module failures
+      release_summary: Security Updates and Grafana Agent Version failure fixes
+    release_date: '2023-09-19'
+  2.2.0:
+    changes:
+      minor_changes:
+      - Use 'ansible_system' env variable to detect os typ in Grafana Agent Role
+      - hange grafana Agent Wal and Positions Directory in Grafana Agent Role
+      release_summary: Grafana Agent Role Updates
+    release_date: '2023-09-20'
+  2.2.1:
+    changes:
+      minor_changes:
+      - Allow alert resource provisioning in Grafana Role
+      release_summary: Allow alert resource provisioning in Grafana Role
+    release_date: '2023-09-27'
+  2.2.2:
+    changes:
+      minor_changes:
+      - Bump cryptography from 41.0.3 to 41.0.4
+      - Create missing notification directory in Grafana Role
+      - Remove check_mode from create local directory task in Grafana Role
+      release_summary: Grafana Role bug fixes and security updates
+    release_date: '2023-09-29'
+  2.2.3:
+    changes:
+      minor_changes:
+      - Remove dependency on local-fs.target from Grafana Agent role
+      release_summary: Remove dependency on local-fs.target from Grafana Agent role
+    release_date: '2023-10-05'
