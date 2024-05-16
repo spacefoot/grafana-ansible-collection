@@ -57,6 +57,7 @@ All variables which can be overridden are stored in [defaults/main.yml](defaults
 | `grafana_snapshots` | {} | [snapshots](http://docs.grafana.org/installation/configuration/#snapshots) configuration section |
 | `grafana_image_storage` | {} | [image storage](http://docs.grafana.org/installation/configuration/#external-image-storage) configuration section |
 | `grafana_date_formats` | {} | [date formats](http://docs.grafana.org/installation/configuration/#date_formats) configuration section |
+| `grafana_feature_toggles` | {} | [feature toggles](http://docs.grafana.org/installation/configuration/#feature_toggles) configuration section |
 | `grafana_dashboards` | [] | List of dashboards which should be imported |
 | `grafana_dashboards_dir` | "dashboards" | Path to a local directory containing dashboards files in `json` format |
 | `grafana_datasources` | [] | List of datasources which should be configured |
@@ -106,6 +107,18 @@ grafana_alert_notifications:
   delete_notifiers:
     - name: Channel 2
       uid: channel2
+```
+
+**NOTE 2**: setting the `http_addr`,`http_port`,`domain` and `root_url` parameters under the `grafana_server` variable has no effect, the `grafana_address`, `grafana_port`, `grafana_domain` and `grafana_url` values are used instead ( from [defaults/main.yml](defaults/main.yml) or as set variables).
+An example snippet:
+```yaml
+grafana_domain: "{{ inventory_hostname }}"
+grafana_url: "https://{{ inventory_hostname }}:3000"
+grafana_address: 0.0.0.0
+grafana_port: 3000
+
+grafana_server:
+  enforce_domain: false
 ```
 
 ## Supported CPU Architectures
